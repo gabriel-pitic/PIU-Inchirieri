@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIU-Inchirieri masini", "PIU-Inchirieri masini.csproj", "{F9391FEC-AACC-484B-952F-3C2B6FAADD09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase", "..\Clase\Clase.csproj", "{79894EBA-9109-42E3-8FDE-E8DD806E6636}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9391FEC-AACC-484B-952F-3C2B6FAADD09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9391FEC-AACC-484B-952F-3C2B6FAADD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9391FEC-AACC-484B-952F-3C2B6FAADD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9391FEC-AACC-484B-952F-3C2B6FAADD09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79894EBA-9109-42E3-8FDE-E8DD806E6636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79894EBA-9109-42E3-8FDE-E8DD806E6636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79894EBA-9109-42E3-8FDE-E8DD806E6636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79894EBA-9109-42E3-8FDE-E8DD806E6636}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA89D4C3-583B-4BDD-8A40-20753555D14D}
+	EndGlobalSection
+EndGlobal
