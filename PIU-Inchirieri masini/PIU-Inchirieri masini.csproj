@@ -49,5 +49,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Clase\Clase.csproj">
+      <Project>{79894eba-9109-42e3-8fde-e8dd806e6636}</Project>
+      <Name>Clase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NivelStocareDate\NivelStocareDate.csproj">
+      <Project>{cb283d2e-5d3b-4c89-bad6-755ffd9a1388}</Project>
+      <Name>NivelStocareDate</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

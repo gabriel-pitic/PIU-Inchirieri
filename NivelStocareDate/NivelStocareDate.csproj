@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{79894EBA-9109-42E3-8FDE-E8DD806E6636}</ProjectGuid>
+    <ProjectGuid>{CB283D2E-5D3B-4C89-BAD6-755FFD9A1388}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Clase</RootNamespace>
-    <AssemblyName>Clase</AssemblyName>
+    <RootNamespace>NivelStocareDate</RootNamespace>
+    <AssemblyName>NivelStocareDate</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,8 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clase.cs" />
+    <Compile Include="Administrare.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Clase\Clase.csproj">
+      <Project>{79894eba-9109-42e3-8fde-e8dd806e6636}</Project>
+      <Name>Clase</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
