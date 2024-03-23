@@ -31,4 +31,28 @@ namespace NivelStocareDate
             return masini;
         }
     }
+    public class AdministrareClienti
+    {
+        private const int NR_MAX_CLIENTI = 100;
+        private client[] clienti;
+        private int nr_clienti;
+
+        public AdministrareClienti()
+        {
+            clienti = new client[NR_MAX_CLIENTI];
+            nr_clienti = 0;
+        }
+
+        public void AddClient(client Client)
+        {
+            clienti[nr_clienti] = Client;
+            nr_clienti++;
+
+        }
+        public client[] GetClienti(out int nr_clienti)
+        {
+            nr_clienti = this.nr_clienti;
+            return clienti;
+        }
+    }
 }

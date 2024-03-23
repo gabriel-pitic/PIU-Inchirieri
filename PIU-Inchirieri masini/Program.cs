@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Clase;
 using NivelStocareDate;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Data.OleDb;
 
 namespace PIU_Inchirieri_masini
 {
@@ -17,42 +20,83 @@ namespace PIU_Inchirieri_masini
             AdministrareMasini adminMasini = new AdministrareMasini();
             masina MasinaNoua = new masina();
             int NrMasini = 0;
+            AdministrareClienti adminClienti = new AdministrareClienti();
+            client ClientNou = new client();
+            int NrClienti = 0;
 
             string optiune;
-            do
-            {
-                Console.WriteLine("C. Citire informatii masina de la tastatura");
-                Console.WriteLine("I. Afisare informatii ultima masina");
-                Console.WriteLine("A. Afisare masini");
-                Console.WriteLine("S. Salvare masina in vector de obiecte");
-                Console.WriteLine("F. Cautare masina");
-                Console.WriteLine("X. Inchidere program");
-
-                Console.WriteLine("Alegti o optiune: ");
-                optiune = Console.ReadLine().ToUpper();
-                switch (optiune)
+            Console.WriteLine("Alege entitatea: ");         //alege clasa unde facem operatiile de citire etc
+            Console.WriteLine("1.Masina");
+            Console.WriteLine("2.Client");
+            Console.WriteLine("3.Problema 2 Laboratorul 4");
+            int opt = int.Parse(Console.ReadLine());
+            if (opt == 1)
+                do
                 {
-                    case "C":
-                        MasinaNoua = CitireMasinaTastatura();
-                        break;
-                    case "I":
-                        AfisareMasina(MasinaNoua);
-                        break;
-                    case "S":
+                    Console.WriteLine("C. Citire informatii masina de la tastatura");
+                    Console.WriteLine("I. Afisare informatii ultima masina");
+                    Console.WriteLine("A. Afisare masini");
+                    Console.WriteLine("S. Salvare masina in vector de obiecte");
+                    Console.WriteLine("F. Cautare masina");
+                    Console.WriteLine("X. Inchidere program");
 
-                        adminMasini.AddMasina(MasinaNoua);
-                        Console.WriteLine("Salvat");
-                        break;
-                    case "A":
-                        masina[] masini = adminMasini.GetMasini(out NrMasini);
-                        AfisareMasini(masini, NrMasini);
-                        break;
-                    case "F":
-                        masina[] cars = adminMasini.GetMasini(out NrMasini);
-                        CautareMasina(cars, NrMasini);
-                        break;
-                }
-            } while (optiune.ToUpper() != "X");
+                    Console.WriteLine("Alegti o optiune: ");
+                    optiune = Console.ReadLine().ToUpper();
+                    switch (optiune)
+                    {
+                        case "C":
+                            MasinaNoua = CitireMasinaTastatura();
+                            break;
+                        case "I":
+                            AfisareMasina(MasinaNoua);
+                            break;
+                        case "S":
+
+                            adminMasini.AddMasina(MasinaNoua);
+                            Console.WriteLine("Salvat");
+                            break;
+                        case "A":
+                            masina[] masini = adminMasini.GetMasini(out NrMasini);
+                            AfisareMasini(masini, NrMasini);
+                            break;
+                        case "F":
+                            masina[] cars = adminMasini.GetMasini(out NrMasini);
+                            CautareMasina(cars, NrMasini);
+                            break;
+                    }
+                } while (optiune.ToUpper() != "X");
+            else if (opt == 2)
+            {
+                do
+                {
+                    Console.WriteLine("C. Citire informatii client de la tastatura");
+                    Console.WriteLine("I. Afisare informatii ultimul client");
+                    Console.WriteLine("A. Afisare clienti");
+                    Console.WriteLine("S. Salvare client in vector de obiecte");
+                    Console.WriteLine("F. Cautare client");
+                    Console.WriteLine("X. Inchidere program");
+
+                    Console.WriteLine("Alegti o optiune: ");
+                    optiune = Console.ReadLine().ToUpper();
+                    switch (optiune)
+                    {
+                        case "C":
+                            ClientNou = CitireClientTastatura();
+                            break;
+                        case "I": AfisareClient(ClientNou); break;
+                        case "S": adminClienti.AddClient(ClientNou); Console.WriteLine("Salvat"); break;
+                        case "A":
+                            client[] clienti = adminClienti.GetClienti(out NrClienti);
+                            AfisareClienti(clienti, NrClienti);
+                            break;
+                        case "F":
+                            client[] clients = adminClienti.GetClienti(out NrClienti);
+                            CautareClient(clients, NrClienti);
+                            break;
+                    }
+                } while (optiune.ToUpper() != "X");
+            }
+            else if (opt == 3) Problema2();
         }
 
         public static masina CitireMasinaTastatura()
@@ -175,7 +219,7 @@ namespace PIU_Inchirieri_masini
                     for (int i = 0; i < nrmasini; i++)
                     {
                         string infoMasina = cars[i].Info();
-                        if (cars[i].alimentare==g)
+                        if (cars[i].alimentare == g)
                             Console.WriteLine(infoMasina + "\n");
                     }
                     break;
@@ -194,7 +238,135 @@ namespace PIU_Inchirieri_masini
             }
         }
 
-        
+        public static client CitireClientTastatura()
+        {
+            Console.WriteLine("Introdu numele si prenumele clientului: ");
+            string name = Console.ReadLine();
+            string[] nume = name.Split(' ');
+            Console.WriteLine("Introdu CNP-ul clientului: ");
+            string cnp = Console.ReadLine();
 
+            client Client = new client(nume[0], nume[1], cnp);
+            return Client;
+
+
+
+        }
+
+        public static void AfisareClient(client Client)
+        {
+            Console.WriteLine(Client.info());
+        }
+
+        public static void AfisareClienti(client[] Client, int nrclienti)
+        {
+            Console.WriteLine("Clientii sunt: ");
+            for (int i = 0; i < nrclienti; i++)
+            {
+                string infoClient = Client[i].info();
+                Console.WriteLine(infoClient);
+                Console.WriteLine("\n");
+            }
+        }
+
+        public static void CautareClient(client[] clienti, int nrclienti)
+        {
+            Console.WriteLine("Alegeti criteriul de cautare: ");
+            Console.WriteLine("1.Prenume");
+            Console.WriteLine("2.Nume");
+            Console.WriteLine("3.CNP");
+            int crt = int.Parse(Console.ReadLine());
+            switch (crt)
+            {
+                case 2:
+                    Console.WriteLine("Cauta dupa numele: ");
+                    string cauta = Console.ReadLine();
+                    for (int i = 0; i < nrclienti; i++)
+                    {
+                        string infoClient = clienti[i].info();
+                        if (clienti[i].Nume == cauta)
+                        {
+                            Console.WriteLine(infoClient);
+                            Console.WriteLine("\n");
+                        }
+                    }
+                    break;
+                case 1:
+                    Console.WriteLine("Cauta dupa prenumele: ");
+                    string cauta1 = Console.ReadLine();
+                    for (int i = 0; i < nrclienti; i++)
+                    {
+                        string infoClient = clienti[i].info();
+                        if (clienti[i].Prenume == cauta1)
+                        {
+                            Console.WriteLine(infoClient);
+                            Console.WriteLine("\n");
+                        }
+                    }
+                    break;
+                case 3:
+                    Console.WriteLine("Cauta dupa CNP: ");
+                    string cauta2 = Console.ReadLine();
+                    for (int i = 0; i < nrclienti; i++)
+                    {
+                        string infoClient = clienti[i].info();
+                        if (clienti[i].CNP == cauta2)
+                        {
+                            Console.WriteLine(infoClient);
+                            break;
+                        }
+                    }
+                    break;
+            }
+        }
+
+        public static void Problema2()
+        {
+            string fisier = "file.txt";
+            string[][] cuvinte = new string[26][];
+
+            using (StreamReader streamReader = new StreamReader(fisier))
+            {
+                string linieFisier;
+                while ((linieFisier = streamReader.ReadLine()) != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(linieFisier))
+                    {
+                        char litera = char.ToLower(linieFisier[0]);
+                        if (char.IsLetter(litera))
+                        {
+                            int index = litera - 'a';
+                            if (cuvinte[index] == null)
+                            {
+                                cuvinte[index] = new string[1] { linieFisier };
+                            }
+                            else
+                            {
+                                string[] tempArray = new string[cuvinte[index].Length + 1];
+                                Array.Copy(cuvinte[index], tempArray, cuvinte[index].Length);
+                                tempArray[cuvinte[index].Length] = linieFisier;
+                                cuvinte[index] = tempArray;
+                            }
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < 26; i++)
+            {
+                char litera = (char)('a' + i);
+                Console.Write($"'{litera}': ");
+                if (cuvinte[i] != null)
+                {
+                    foreach (string cuvant in cuvinte[i])
+                    {
+                        Console.Write($"{cuvant} ");
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+
+        }
     }
 }

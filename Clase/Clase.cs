@@ -52,11 +52,23 @@ namespace Clase
         public string Prenume { get; set; }
         public string CNP { get; set; }
 
+        public client()
+        {
+            Nume = Prenume = CNP = string.Empty;
+       
+        }
+
         public client(string nume, string prenume, string cNP)
         {
-            Nume = nume;
-            Prenume = prenume;
-            CNP = cNP;
+            this.Nume = nume;
+            this.Prenume = prenume;
+            this.CNP = cNP;
+        }
+
+        public string info()
+        {
+            string info = string.Format("Clientul cu CNP-ul: {0} are numele: {1} {2}", CNP, Nume, Prenume);
+            return info;
         }
     }
 
