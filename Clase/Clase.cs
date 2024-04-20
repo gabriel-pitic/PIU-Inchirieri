@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlTypes;
 
 namespace Clase
 {
@@ -10,14 +11,30 @@ namespace Clase
         private static int nextID = 0;
         public int id { get; }
         public string transmisie { get; set; }
-        public string alimentare { get; set; } //benzina, motorina, electrica
+        public string alimentare { get; set; } //benzina, motorina, electrica, hibrid
         public int locuri { get; set; }
         public float pret_zi { get; set; }
         public string clasa { get; set; }
         public string inmat { get; set; } //numar inmatriculare
-
+        
         bool busy { get; set; }
-        public masina(string _marca, string _model, string _transmisie, string _clasa, string _inmat, int _locuri, float _pret_zi, string _alimentare)
+        private CuloareMasina culoare { get; set; } 
+        public OptiuniMasina optiuni {get; set; }
+
+        public enum CuloareMasina       //enum #1
+        {
+            Rosu, Alb, Negru, Gri, Albastru, Verde, Maro
+        }
+        [Flags]
+        public enum OptiuniMasina   //enum #2
+        {    None=0b_0000_0000,
+            AerConditionat= 0b_0000_0001<<1, //1
+            Navigatie= 0b_0000_0010<<2,    //2
+            SenzoriParcare=0b_0000_0100<<3,    //4
+            CruiseControl= 0b_0000_1000<<4,    //8
+            ScauneIncalzite=0b_0001_0000<<5 //16
+        }
+        public masina(string _marca, string _model, string _transmisie, string _clasa, string _inmat, int _locuri, float _pret_zi, string _alimentare, int cul, OptiuniMasina options)
         {
             this.marca = _marca;
             this.model = _model;
@@ -28,9 +45,25 @@ namespace Clase
             this.pret_zi = _pret_zi;
             this.alimentare = _alimentare;
             this.id = nextID++;
+            this.culoare = (CuloareMasina)cul;
+            this.optiuni = options;
+           
+            
 
         }
-
+        public void ListOptiuni()
+        { short i = 1;
+            Console.WriteLine("Optiunile sunt:");
+            foreach (OptiuniMasina option in Enum.GetValues(typeof(OptiuniMasina)))
+            {
+                if (optiuni.HasFlag(option))
+                {
+                    Console.WriteLine(i + " " + option);
+                    i++;
+                }
+                
+            }
+        }
         public masina()
         {
             marca = model = transmisie = clasa = inmat = alimentare = string.Empty;
@@ -39,7 +72,7 @@ namespace Clase
 
         public string Info()
         {
-            string info = string.Format("ID: {0}, Model: {1} {2}, Clasa {3}\n Numar de inmatriculare: {4}, Locuri: {5}, Alimentare: {6}, Transmisie: {7}\n Pret pe zi: {8}", id, marca, model, clasa, inmat, locuri, alimentare, transmisie, pret_zi);
+            string info = string.Format("ID: {0}, Model: {1} {2}, Clasa {3}\n Numar de inmatriculare: {4}, Locuri: {5}, Alimentare: {6}, Transmisie: {7}\n Pret pe zi: {8}\n{9}", id, marca, model, clasa, inmat, locuri, alimentare, transmisie, pret_zi, culoare.ToString());
 
             return info;
         }

@@ -10,6 +10,8 @@ using NivelStocareDate;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Data.OleDb;
+using System.CodeDom.Compiler;
+using static Clase.masina;
 
 namespace PIU_Inchirieri_masini
 {
@@ -117,15 +119,42 @@ namespace PIU_Inchirieri_masini
             float pret_zi = float.Parse(Console.ReadLine());
             Console.WriteLine("Introduceti tipul de combustibil: ");
             string alimentare = Console.ReadLine();
+            Console.WriteLine("Alege culoarea:"); // Roșu, Alb, Negru, Gri, Albastru, Verde, Maro
+            Console.WriteLine("1. Rosu");
+            Console.WriteLine("2. Alb");
+            Console.WriteLine("3. Negru");
+            Console.WriteLine("4. Gri");
+            Console.WriteLine("5. Albastru");
+            Console.WriteLine("6. Verde");
+            Console.WriteLine("7. Maro");
+            int choice=int.Parse(Console.ReadLine());
+            choice -= 1;
 
-            masina Masina = new masina(marca, model, transmisie, clasa, nrmat, nrlocuri, pret_zi, alimentare);
+            Console.WriteLine("Alege optiunile:");
+            Console.WriteLine("1. Aer Conditionat");
+            Console.WriteLine("2. Navigatie");
+            Console.WriteLine("3. Senzori Parcare");
+            Console.WriteLine("4. CruiseControl");
+            Console.WriteLine("5. Scaune incalzite");
+
+            Console.WriteLine("Introdu optiunile masinii: ");
+
+           
+           
+            masina Masina = new masina(marca, model, transmisie, clasa, nrmat, nrlocuri, pret_zi, alimentare, choice, SelectOptions());
+            
+           
+
             return Masina;
+
+            
 
         }
 
         public static void AfisareMasina(masina Masina)
         {
             Console.WriteLine(Masina.Info());
+            Masina.ListOptiuni();
         }
 
         public static void AfisareMasini(masina[] masini, int nrmasini)
@@ -135,6 +164,7 @@ namespace PIU_Inchirieri_masini
             {
                 string infoMasina = masini[i].Info();
                 Console.WriteLine(infoMasina);
+                masini[i].ListOptiuni();
                 Console.WriteLine("\n");
             }
         }
@@ -368,5 +398,56 @@ namespace PIU_Inchirieri_masini
             Console.ReadLine();
 
         }
+
+        public static OptiuniMasina SelectOptions()
+        {
+            OptiuniMasina selectedOptions = OptiuniMasina.None;
+
+            Console.WriteLine("Introduceti optiunile (separate de virgule)");
+            Console.WriteLine("1. AerConditionat");
+            Console.WriteLine("2. Navigatie");
+            Console.WriteLine("3. SenzoriParcare");
+            Console.WriteLine("4. CruiseControl");
+            Console.WriteLine("5. ScauneIncalzite");
+
+            string[] selectedOptionsStrings = Console.ReadLine().Split(',');
+
+            foreach (string option in selectedOptionsStrings)
+            {
+                if (int.TryParse(option.Trim(), out int optionNumber))
+                {
+                    switch (optionNumber)
+                    {
+                        case 1:
+                            selectedOptions |= OptiuniMasina.AerConditionat;
+
+                            break;
+                        case 2:
+                            selectedOptions |= OptiuniMasina.Navigatie;
+                            break;
+                        case 3:
+                            selectedOptions |= OptiuniMasina.SenzoriParcare;
+                            break;
+                        case 4:
+                            selectedOptions |= OptiuniMasina.CruiseControl;
+                            break;
+                        case 5:
+                            selectedOptions |= OptiuniMasina.ScauneIncalzite;
+                            break;
+                        default:
+                            Console.WriteLine("Numar optiune invalid.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Optiune invalida.");
+                }
+            }
+        
+               
+            return selectedOptions;
+        }
+
     }
 }
