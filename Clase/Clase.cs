@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.SqlTypes;
+using System.IO;
+using System.Text;
 
 namespace Clase
 {
@@ -16,9 +18,9 @@ namespace Clase
         public float pret_zi { get; set; }
         public string clasa { get; set; }
         public string inmat { get; set; } //numar inmatriculare
-        
+        private const char SEPARATOR_PRINCIPAL_FISIER = ';';
         bool busy { get; set; }
-        private CuloareMasina culoare { get; set; } 
+        public CuloareMasina culoare { get; set; } 
         public OptiuniMasina optiuni {get; set; }
 
         public enum CuloareMasina       //enum #1
@@ -47,23 +49,116 @@ namespace Clase
             this.id = nextID++;
             this.culoare = (CuloareMasina)cul;
             this.optiuni = options;
-           
-            
+           //constructor tastatura
+        }
+        public masina(string linieFisier)
+        {
+            string[] dateFisier = linieFisier.Split(';');
+
+            //ordinea de preluare a campurilor este data de ordinea in care au fost scrise in fisier prin apelul implicit al metodei ConversieLaSir_PentruFisier()
+            this.id = Convert.ToInt32(dateFisier[0]);
+            this.marca = dateFisier[1];
+            this.model = dateFisier[2];
+            this.transmisie= dateFisier[3];
+            this.clasa= dateFisier[4];
+            this.inmat = dateFisier[5];
+            this.locuri = Convert.ToInt32(dateFisier[6]);
+            this.pret_zi = float.Parse(dateFisier[7]);
+            this.alimentare = dateFisier[8];
+           this.culoare = (CuloareMasina)Enum.Parse(typeof(CuloareMasina), dateFisier[9]);
+            //
+            string[] optiuniArray = dateFisier[10].Split(',');
+            foreach (string optiune in optiuniArray)
+            {
+                int optiuneInt = int.Parse(optiune);
+                optiuni |= (OptiuniMasina)(1 << (optiuneInt - 1));
+            }
 
         }
-        public void ListOptiuni()
-        { short i = 1;
+        //constructor text
+        public static OptiuniMasina SelectOptions()
+        {
+            OptiuniMasina selectedOptions = OptiuniMasina.None;
+
+            Console.WriteLine("Introduceti optiunile (separate de virgule)");
+            Console.WriteLine("1. AerConditionat");
+            Console.WriteLine("2. Navigatie");
+            Console.WriteLine("3. SenzoriParcare");
+            Console.WriteLine("4. CruiseControl");
+            Console.WriteLine("5. ScauneIncalzite");
+
+            string[] selectedOptionsStrings = Console.ReadLine().Split(',');
+
+            foreach (string option in selectedOptionsStrings)
+            {
+                if (int.TryParse(option.Trim(), out int optionNumber))
+                {
+                    switch (optionNumber)
+                    {
+                        case 1:
+                            selectedOptions |= OptiuniMasina.AerConditionat;
+
+                            break;
+                        case 2:
+                            selectedOptions |= OptiuniMasina.Navigatie;
+                            break;
+                        case 3:
+                            selectedOptions |= OptiuniMasina.SenzoriParcare;
+                            break;
+                        case 4:
+                            selectedOptions |= OptiuniMasina.CruiseControl;
+                            break;
+                        case 5:
+                            selectedOptions |= OptiuniMasina.ScauneIncalzite;
+                            break;
+                        default:
+                            Console.WriteLine("Numar optiune invalid.");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Optiune invalida.");
+                }
+            }
+
+
+            return selectedOptions;
+        }
+
+
+        //
+        public string ListOptiuni()
+        {
+            StringBuilder outputBuilder = new StringBuilder();
+            short i = 1;
+
+            foreach (OptiuniMasina option in Enum.GetValues(typeof(OptiuniMasina)))
+            {
+                if (optiuni.HasFlag(option))
+                {
+                    outputBuilder.AppendLine($"{i} {option}");
+                    i++;
+                }
+            }
+
+            return outputBuilder.ToString();
+        }
+        public void ListOptiuniText(StreamWriter stream)
+        {
+            short i = 1;
             Console.WriteLine("Optiunile sunt:");
             foreach (OptiuniMasina option in Enum.GetValues(typeof(OptiuniMasina)))
             {
                 if (optiuni.HasFlag(option))
                 {
-                    Console.WriteLine(i + " " + option);
+                    stream.WriteLine(i + " " + option);
                     i++;
                 }
-                
+
             }
         }
+
         public masina()
         {
             marca = model = transmisie = clasa = inmat = alimentare = string.Empty;

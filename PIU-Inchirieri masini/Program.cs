@@ -11,7 +11,8 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Data.OleDb;
 using System.CodeDom.Compiler;
-using static Clase.masina;
+using System.Configuration;
+
 
 namespace PIU_Inchirieri_masini
 {
@@ -25,6 +26,25 @@ namespace PIU_Inchirieri_masini
             AdministrareClienti adminClienti = new AdministrareClienti();
             client ClientNou = new client();
             int NrClienti = 0;
+
+
+
+            /* test citire fisier
+            string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
+
+            AdministrareMasiniText adminmasini = new AdministrareMasiniText(caleCompletaFisier);
+            int nrMasini = 0;
+            masina[] Masini = adminmasini.GetMasini(out nrMasini);
+            Console.Write(nrMasini);
+            Console.WriteLine(Masini[0].Info());
+            Masini[0].ListOptiuni();
+            Console.WriteLine(Masini[1].Info());
+            Masini[1].ListOptiuni();*/
+
+
+
 
             string optiune;
             Console.WriteLine("Alege entitatea: ");         //alege clasa unde facem operatiile de citire etc
@@ -141,7 +161,7 @@ namespace PIU_Inchirieri_masini
 
            
            
-            masina Masina = new masina(marca, model, transmisie, clasa, nrmat, nrlocuri, pret_zi, alimentare, choice, SelectOptions());
+            masina Masina = new masina(marca, model, transmisie, clasa, nrmat, nrlocuri, pret_zi, alimentare, choice, masina.SelectOptions());
             
            
 
@@ -399,55 +419,7 @@ namespace PIU_Inchirieri_masini
 
         }
 
-        public static OptiuniMasina SelectOptions()
-        {
-            OptiuniMasina selectedOptions = OptiuniMasina.None;
-
-            Console.WriteLine("Introduceti optiunile (separate de virgule)");
-            Console.WriteLine("1. AerConditionat");
-            Console.WriteLine("2. Navigatie");
-            Console.WriteLine("3. SenzoriParcare");
-            Console.WriteLine("4. CruiseControl");
-            Console.WriteLine("5. ScauneIncalzite");
-
-            string[] selectedOptionsStrings = Console.ReadLine().Split(',');
-
-            foreach (string option in selectedOptionsStrings)
-            {
-                if (int.TryParse(option.Trim(), out int optionNumber))
-                {
-                    switch (optionNumber)
-                    {
-                        case 1:
-                            selectedOptions |= OptiuniMasina.AerConditionat;
-
-                            break;
-                        case 2:
-                            selectedOptions |= OptiuniMasina.Navigatie;
-                            break;
-                        case 3:
-                            selectedOptions |= OptiuniMasina.SenzoriParcare;
-                            break;
-                        case 4:
-                            selectedOptions |= OptiuniMasina.CruiseControl;
-                            break;
-                        case 5:
-                            selectedOptions |= OptiuniMasina.ScauneIncalzite;
-                            break;
-                        default:
-                            Console.WriteLine("Numar optiune invalid.");
-                            break;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Optiune invalida.");
-                }
-            }
         
-               
-            return selectedOptions;
-        }
 
     }
 }
