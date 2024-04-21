@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 namespace NivelStocareDate
 {
     public class AdministrareMasiniText
-    {
+    {   
         private const int NR_MAX_MASINI = 50;
         private string numeFisier;
+        public event EventHandler MasinaAdded;
 
         public AdministrareMasiniText(string numeFisier)
         {
@@ -24,30 +25,34 @@ namespace NivelStocareDate
         {
             using (StreamWriter streamWriterFisierText=new StreamWriter(numeFisier, true))
             {
-                streamWriterFisierText.WriteLine(Masina.Info());
-                Masina.ListOptiuniText(streamWriterFisierText);
+                streamWriterFisierText.WriteLine(Masina.ConversieLaSir_PentruFisier());
+                
+             
             }
+            MasinaAdded?.Invoke(this, EventArgs.Empty);
+
         }
 
-        public masina[] GetMasini(out int nrStudenti)
+        public masina[] GetMasini(out int nrMasini)
         {
             masina[] Masini=new masina[NR_MAX_MASINI];
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
                 string linieFisier;
                 
-                nrStudenti = 0;
+                nrMasini = 0;
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
                 
-                    Masini[nrStudenti] = new masina(linieFisier);
-                    nrStudenti++;
+                    Masini[nrMasini++] = new masina(linieFisier);
+     
                 }
             }
            
             return Masini;
         }
-
+         
+ 
         public masina GetMasina(string model, string marca)
         {
             // instructiunea 'using' va apela streamReader.Close()
@@ -55,7 +60,7 @@ namespace NivelStocareDate
             {
                 string linieFisier;
 
-                // citeste cate o linie si creaza un obiect de tip Student
+                // citeste cate o linie si creaza un obiect de tip Masina
                 // pe baza datelor din linia citita
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {

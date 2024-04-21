@@ -52,13 +52,6 @@ namespace InchirieriForms
         public Form1()
         {
             InitializeComponent();
-            string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
-            string locatieFisierSolutie=Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
-
-            adminMasini = new AdministrareMasiniText(caleCompletaFisier);
-            int nrMasini = 0;
-            masina[] Masini = adminMasini.GetMasini(out nrMasini);
 
             //proprietati
             this.Size = new Size(1280, 720);
@@ -67,9 +60,27 @@ namespace InchirieriForms
             this.Font = new Font("Consolas", 11, FontStyle.Bold);
             this.ForeColor = Color.LightGray;
             this.Text = "Informatii masini";
-
-            //adaugare controale de tip Label:
             
+            Button btnSwitch=new Button();
+            btnSwitch.Text = "Introdu date";
+            btnSwitch.Click +=new EventHandler(SwitchButton_Clicked); //event nou pentru schimbare
+            btnSwitch.Location = new Point(1200, 600);
+            btnSwitch.Width = 2 * LATIME_CONTROL;
+            btnSwitch.BackColor= Color.LightGray;
+            btnSwitch.ForeColor = Color.Blue;
+            this.Controls.Add(btnSwitch);
+
+            string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
+
+            adminMasini = new AdministrareMasiniText(caleCompletaFisier);
+            int nrMasini = 0;
+            masina[] Masini = adminMasini.GetMasini(out nrMasini);
+
+            
+            //adaugare controale de tip Label:
+
             lblId = new Label();
             lblId.Width = LATIME_CONTROL;
             lblId.Text = "ID";
@@ -164,8 +175,16 @@ namespace InchirieriForms
 
             //
 
+            Button btnRefresh = new Button();
+            btnRefresh.Text = "Actualizeaza";
+            btnRefresh.Click += new EventHandler(btnRefresh_Click);
+            btnRefresh.Location = new Point(1100, 600);
+            btnRefresh.Width = LATIME_CONTROL;
+            btnRefresh.BackColor = Color.LightGray;
+            btnRefresh.ForeColor = Color.Blue;
+            this.Controls.Add(btnRefresh);
+        
 
-            
             lblsMarca = new Label[nrMasini];
             lblsModel = new Label[nrMasini];
             lblsTransmisie = new Label[nrMasini];
@@ -177,8 +196,6 @@ namespace InchirieriForms
             lblsCuloare = new Label[nrMasini];
             lblsOptiuni = new Label[nrMasini];
             lblsId = new Label[nrMasini];
-
-
 
             for (int i = 0; i < nrMasini; i++)
             {
@@ -195,7 +212,6 @@ namespace InchirieriForms
                 lblsOptiuni[i] = CreateLabel(Convert.ToString(Masini[i].ListOptiuni()), DIMENSIUNE_PAS_X * 11, DIMENSIUNE_PAS_Y * (i + 1));
 
             }
-
 
         }
 
@@ -222,9 +238,45 @@ namespace InchirieriForms
 
         private void AfiseazaMasini()
         {
+            //de reimplementat sa functioneze in Form1_Load()
+        }
+        private void SwitchButton_Clicked(object sender, EventArgs e)
+        {   //adauga masina
+            Form2 form2= new Form2();
+           
+            form2.ShowDialog();
+        
             
+        }
+        public void RefreshCarList()
+        {
+            int nrMasini = 0;
+            masina[] Masini = adminMasini.GetMasini(out nrMasini);
+            for (int i = 0; i < nrMasini; i++)
+            {
+                lblsId[i].Text = Convert.ToString(Masini[i].id);
+                lblsMarca[i].Text = Masini[i].marca;
+                lblsModel[i].Text = Masini[i].model;
+                lblsTransmisie[i].Text = Masini[i].transmisie;
+                lblsClasa[i].Text = Masini[i].clasa;
+                lblsInmatriculare[i].Text = Masini[i].inmat;
+                lblsLocuri[i].Text = Convert.ToString(Masini[i].locuri);
+                lblsPretZi[i].Text = Convert.ToString(Masini[i].pret_zi);
+                lblsAlimentare[i].Text = Masini[i].alimentare;
+                lblsCuloare[i].Text = Convert.ToString(Masini[i].culoare);
+                lblsOptiuni[i].Text = Masini[i].ListOptiuni();
+            }
+        }
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            this.Hide();
 
+            Form1 newForm = new Form1();
+            newForm.Show();
+
+            //de schimbat, metoda nu functioneaza implementarea originala pentru refresh
 
         }
+
     }
 }

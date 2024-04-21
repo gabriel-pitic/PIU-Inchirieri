@@ -29,7 +29,7 @@ namespace PIU_Inchirieri_masini
 
 
 
-            /* test citire fisier
+            
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
@@ -41,7 +41,7 @@ namespace PIU_Inchirieri_masini
             Console.WriteLine(Masini[0].Info());
             Masini[0].ListOptiuni();
             Console.WriteLine(Masini[1].Info());
-            Masini[1].ListOptiuni();*/
+            Masini[1].ListOptiuni();
 
 
 

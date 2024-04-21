@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Text;
@@ -68,14 +69,69 @@ namespace Clase
            this.culoare = (CuloareMasina)Enum.Parse(typeof(CuloareMasina), dateFisier[9]);
             //
             string[] optiuniArray = dateFisier[10].Split(',');
+            optiuni = 0;
             foreach (string optiune in optiuniArray)
             {
                 int optiuneInt = int.Parse(optiune);
                 optiuni |= (OptiuniMasina)(1 << (optiuneInt - 1));
             }
+            if (id >= nextID)
+            {
+                nextID = id + 1;
 
+            }
+
+        
         }
-        //constructor text
+        public string ConversieLaSir_PentruFisier()
+        {
+            string optionsString = GetSelectedOptions(optiuni);
+
+            string masinaString = string.Format("{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11}",
+                ';',
+                id.ToString(),
+                (marca ?? " NECUNOSCUT "),
+                (model ?? " NECUNOSCUT "),
+                (transmisie ?? " NECUNOSCUT "),
+                (clasa ?? " NECUNOSCUT "),
+                (inmat ?? " NECUNOSCUT "),
+                locuri.ToString(),
+                pret_zi.ToString(),
+                (alimentare ?? " NECUNOSCUT "),
+                (culoare.ToString() ?? " NECUNOSCUT"),
+                optionsString
+                );
+
+            return masinaString;
+        }
+
+        private string GetSelectedOptions(OptiuniMasina optiuni)
+        {
+            StringBuilder optionsStringBuilder = new StringBuilder();
+
+            for (int i = 1; i <= 5; i++) 
+            {
+                
+                if ((optiuni & (OptiuniMasina)(1 << i)) != 0)
+                {
+                    if (optionsStringBuilder.Length > 0)
+                    {
+                        optionsStringBuilder.Append(","); 
+                    }
+
+                    optionsStringBuilder.Append(i); 
+                }
+            }
+
+            return optionsStringBuilder.ToString();
+        }
+
+
+
+
+
+
+
         public static OptiuniMasina SelectOptions()
         {
             OptiuniMasina selectedOptions = OptiuniMasina.None;
