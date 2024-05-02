@@ -7,7 +7,8 @@ using System.Text;
 namespace Clase
 {
     public class masina
-    {
+    {   
+
 
         public string marca { get; set; }
         public string model { get; set; }   //modelul din marca
@@ -24,19 +25,7 @@ namespace Clase
         public CuloareMasina culoare { get; set; } 
         public OptiuniMasina optiuni {get; set; }
 
-        public enum CuloareMasina       //enum #1
-        {
-            Rosu, Alb, Negru, Gri, Albastru, Verde, Maro
-        }
-        [Flags]
-        public enum OptiuniMasina   //enum #2
-        {    None=0b_0000_0000,
-            AerConditionat= 0b_0000_0001<<1, //1
-            Navigatie= 0b_0000_0010<<2,    //2
-            SenzoriParcare=0b_0000_0100<<3,    //4
-            CruiseControl= 0b_0000_1000<<4,    //8
-            ScauneIncalzite=0b_0001_0000<<5 //16
-        }
+      
         public masina(string _marca, string _model, string _transmisie, string _clasa, string _inmat, int _locuri, float _pret_zi, string _alimentare, int cul, OptiuniMasina options)
         {
             this.marca = _marca;
@@ -125,12 +114,6 @@ namespace Clase
 
             return optionsStringBuilder.ToString();
         }
-
-
-
-
-
-
 
         public static OptiuniMasina SelectOptions()
         {

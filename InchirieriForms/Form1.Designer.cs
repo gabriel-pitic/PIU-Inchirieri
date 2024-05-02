@@ -28,13 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnCauta1 = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnCauta1
+            // 
+            this.btnCauta1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCauta1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCauta1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.btnCauta1.Location = new System.Drawing.Point(68, 427);
+            this.btnCauta1.Name = "btnCauta1";
+            this.btnCauta1.Size = new System.Drawing.Size(75, 23);
+            this.btnCauta1.TabIndex = 0;
+            this.btnCauta1.Text = "Cauta";
+            this.btnCauta1.UseVisualStyleBackColor = false;
+            this.btnCauta1.Click += new System.EventHandler(this.Cauta_Clicked);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1043, 681);
+            this.Controls.Add(this.btnCauta1);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnCauta1;
     }
 }
 

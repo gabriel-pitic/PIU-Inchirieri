@@ -71,9 +71,9 @@ namespace InchirieriForms
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
 
             adminMasini = new AdministrareMasiniText(caleCompletaFisier);
-            int nrMasini = 0;
-            masina[] Masini = adminMasini.GetMasini(out nrMasini);
-
+            
+            List<masina> Masini = adminMasini.GetMasini();
+            int nrMasini = Masini.Count;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(100, 100);
             this.Font = new Font("Consolas", 12, FontStyle.Bold);

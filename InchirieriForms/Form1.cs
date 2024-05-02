@@ -75,8 +75,9 @@ namespace InchirieriForms
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
 
             adminMasini = new AdministrareMasiniText(caleCompletaFisier);
-            int nrMasini = 0;
-            masina[] Masini = adminMasini.GetMasini(out nrMasini);
+            List<masina> Masini=new List<masina>();
+            Masini = adminMasini.GetMasini();
+            int nrMasini = Masini.Count;
 
             
             //adaugare controale de tip Label:
@@ -196,21 +197,21 @@ namespace InchirieriForms
             lblsCuloare = new Label[nrMasini];
             lblsOptiuni = new Label[nrMasini];
             lblsId = new Label[nrMasini];
-
-            for (int i = 0; i < nrMasini; i++)
+            int i = 0;
+            foreach(masina Masina in Masini)
             {
-                lblsId[i] = CreateLabel(Convert.ToString(Masini[i].id), DIMENSIUNE_PAS_X, (1 + i) * DIMENSIUNE_PAS_Y);
-                lblsMarca[i] = CreateLabel(Masini[i].marca, 2 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
-                lblsModel[i] = CreateLabel(Masini[i].model, 3 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
-                lblsTransmisie[i] = CreateLabel(Masini[i].transmisie, 4 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
-                lblsClasa[i] = CreateLabel(Masini[i].clasa, 5 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
-                lblsInmatriculare[i] = CreateLabel(Masini[i].inmat, 6 * DIMENSIUNE_PAS_X, DIMENSIUNE_PAS_Y * (i + 1));
-                lblsLocuri[i] = CreateLabel(Convert.ToString(Masini[i].locuri), 7 * DIMENSIUNE_PAS_X, DIMENSIUNE_PAS_Y * (i + 1));
-                lblsPretZi[i] = CreateLabel(Convert.ToString(Masini[i].pret_zi), 8 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
-                lblsAlimentare[i] = CreateLabel(Masini[i].alimentare, 9 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
-                lblsCuloare[i] = CreateLabel(Convert.ToString(Masini[i].culoare), DIMENSIUNE_PAS_X * 10, DIMENSIUNE_PAS_Y * (i + 1));
-                lblsOptiuni[i] = CreateLabel(Convert.ToString(Masini[i].ListOptiuni()), DIMENSIUNE_PAS_X * 11, DIMENSIUNE_PAS_Y * (i + 1));
-
+                lblsId[i] = CreateLabel(Convert.ToString(Masina.id), DIMENSIUNE_PAS_X, (1 + i) * DIMENSIUNE_PAS_Y);
+                lblsMarca[i] = CreateLabel(Masina.marca, 2 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
+                lblsModel[i] = CreateLabel(Masina.model, 3 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
+                lblsTransmisie[i] = CreateLabel(Masina.transmisie, 4 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
+                lblsClasa[i] = CreateLabel(Masina.clasa, 5 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
+                lblsInmatriculare[i] = CreateLabel(Masina.inmat, 6 * DIMENSIUNE_PAS_X, DIMENSIUNE_PAS_Y * (i + 1));
+                lblsLocuri[i] = CreateLabel(Convert.ToString(Masina.locuri), 7 * DIMENSIUNE_PAS_X, DIMENSIUNE_PAS_Y * (i + 1));
+                lblsPretZi[i] = CreateLabel(Convert.ToString(Masina.pret_zi), 8 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
+                lblsAlimentare[i] = CreateLabel(Masina.alimentare, 9 * DIMENSIUNE_PAS_X, (i + 1) * DIMENSIUNE_PAS_Y);
+                lblsCuloare[i] = CreateLabel(Convert.ToString(Masina.culoare), DIMENSIUNE_PAS_X * 10, DIMENSIUNE_PAS_Y * (i + 1));
+                lblsOptiuni[i] = CreateLabel(Convert.ToString(Masina.ListOptiuni()), DIMENSIUNE_PAS_X * 11, DIMENSIUNE_PAS_Y * (i + 1));
+                i++;
             }
 
         }
@@ -248,10 +249,16 @@ namespace InchirieriForms
         
             
         }
+
+        private void Cauta_Clicked(object sender, EventArgs e)
+        {
+            Cauta cauta = new Cauta();
+            cauta.Show();
+        }
         public void RefreshCarList()
         {
             int nrMasini = 0;
-            masina[] Masini = adminMasini.GetMasini(out nrMasini);
+            List<masina> Masini = adminMasini.GetMasini();
             for (int i = 0; i < nrMasini; i++)
             {
                 lblsId[i].Text = Convert.ToString(Masini[i].id);

@@ -35,8 +35,9 @@ namespace PIU_Inchirieri_masini
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
 
             AdministrareMasiniText adminmasini = new AdministrareMasiniText(caleCompletaFisier);
-            int nrMasini = 0;
-            masina[] Masini = adminmasini.GetMasini(out nrMasini);
+            
+            List<masina> Masini = adminmasini.GetMasini();
+            int nrMasini = Masini.Count;
             Console.Write(nrMasini);
             Console.WriteLine(Masini[0].Info());
             Masini[0].ListOptiuni();
@@ -78,11 +79,11 @@ namespace PIU_Inchirieri_masini
                             Console.WriteLine("Salvat");
                             break;
                         case "A":
-                            masina[] masini = adminMasini.GetMasini(out NrMasini);
+                            List<masina> masini = adminMasini.GetMasini();
                             AfisareMasini(masini, NrMasini);
                             break;
                         case "F":
-                            masina[] cars = adminMasini.GetMasini(out NrMasini);
+                            List<masina> cars = adminMasini.GetMasini();
                             CautareMasina(cars, NrMasini);
                             break;
                     }
@@ -177,7 +178,7 @@ namespace PIU_Inchirieri_masini
             Masina.ListOptiuni();
         }
 
-        public static void AfisareMasini(masina[] masini, int nrmasini)
+        public static void AfisareMasini(List<masina> masini, int nrmasini)
         {
             Console.WriteLine("Masinile sunt: ");
             for (int i = 0; i < nrmasini; i++)
@@ -189,7 +190,7 @@ namespace PIU_Inchirieri_masini
             }
         }
 
-        public static void CautareMasina(masina[] cars, int nrmasini)
+        public static void CautareMasina(List<masina> cars, int nrmasini)
         {
             Console.WriteLine("Alegeti un criteriu:");
             Console.WriteLine("1. Model");

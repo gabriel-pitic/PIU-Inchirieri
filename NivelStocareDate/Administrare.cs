@@ -10,24 +10,23 @@ namespace NivelStocareDate
     public class AdministrareMasini
     {
         private const int NR_MAX_MASINI = 100;
-        private masina[] masini;
+        private List<masina> masini;
         private int nr_masini;
 
         public AdministrareMasini()
         {
-            masini=new masina[NR_MAX_MASINI];
-            nr_masini=0;
+            masini=new List<masina>();
+                
         }
 
         public void AddMasina(masina Masina)
         {
-            masini[nr_masini] = Masina;
-            nr_masini++;
+            masini.Add(Masina);
 
         }
-        public masina[] GetMasini(out int nr_masini)
+        public List<masina> GetMasini()
         {
-            nr_masini = this.nr_masini;
+           
             return masini;
         }
     }

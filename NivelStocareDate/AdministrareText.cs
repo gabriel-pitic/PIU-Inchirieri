@@ -33,18 +33,16 @@ namespace NivelStocareDate
 
         }
 
-        public masina[] GetMasini(out int nrMasini)
+        public List<masina> GetMasini()
         {
-            masina[] Masini=new masina[NR_MAX_MASINI];
+            List <masina> Masini=new List<masina>();
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
                 string linieFisier;
-                
-                nrMasini = 0;
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
                 
-                    Masini[nrMasini++] = new masina(linieFisier);
+                    Masini.Add(new masina(linieFisier));
      
                 }
             }
@@ -65,7 +63,7 @@ namespace NivelStocareDate
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
                     masina Masina = new masina(linieFisier);
-                    if (Masina.model.Equals(model) && Masina.marca.Equals(marca))
+                    if (Masina.model.Equals(model) || Masina.marca.Equals(marca))
                         return Masina;
                 }
             }
