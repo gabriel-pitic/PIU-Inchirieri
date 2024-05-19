@@ -1,0 +1,3 @@
+angajat1,parola1
+angajat2,parola2
+admin,admin

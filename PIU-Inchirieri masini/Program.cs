@@ -20,15 +20,17 @@ namespace PIU_Inchirieri_masini
     {
         static void Main()
         {
-            AdministrareMasini adminMasini = new AdministrareMasini();
-            masina MasinaNoua = new masina();
-            int NrMasini = 0;
-            AdministrareClienti adminClienti = new AdministrareClienti();
-            client ClientNou = new client();
-            int NrClienti = 0;
+            /* AdministrareMasini adminMasini = new AdministrareMasini();
+             masina MasinaNoua = new masina();
+             int NrMasini = 0;
+             AdministrareClienti adminClienti = new AdministrareClienti();
+             client ClientNou = new client();
+             int NrClienti = 0;*/
+        }
+    }
+}
 
-
-
+/*
             
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
@@ -122,7 +124,7 @@ namespace PIU_Inchirieri_masini
             else if (opt == 3) Problema2();
         }
 
-        public static masina CitireMasinaTastatura()
+        public  void masina CitireMasinaTastatura()
         {
             Console.WriteLine("Introduceti marca: ");
             string marca = Console.ReadLine();
@@ -162,11 +164,11 @@ namespace PIU_Inchirieri_masini
 
            
            
-            masina Masina = new masina(marca, model, transmisie, clasa, nrmat, nrlocuri, pret_zi, alimentare, choice, masina.SelectOptions());
+           // masina Masina = new masina(marca, model, transmisie, clasa, nrmat, nrlocuri, pret_zi, alimentare, choice, masina.SelectOptions());
             
            
 
-            return Masina;
+           // return Masina;
 
             
 
@@ -424,3 +426,4 @@ namespace PIU_Inchirieri_masini
 
     }
 }
+*/

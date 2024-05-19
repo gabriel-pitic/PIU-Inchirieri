@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NivelStocareDate", "..\Nive
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InchirieriForms", "..\InchirieriForms\InchirieriForms.csproj", "{895E3320-000E-4680-B3D7-DD78A1B09B24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NivelStocareDate1", "..\NivelStocareDate1\NivelStocareDate1.csproj", "{F9690CE5-3A22-41AB-9524-9CE00C218DD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{895E3320-000E-4680-B3D7-DD78A1B09B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{895E3320-000E-4680-B3D7-DD78A1B09B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{895E3320-000E-4680-B3D7-DD78A1B09B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9690CE5-3A22-41AB-9524-9CE00C218DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9690CE5-3A22-41AB-9524-9CE00C218DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9690CE5-3A22-41AB-9524-9CE00C218DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9690CE5-3A22-41AB-9524-9CE00C218DD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

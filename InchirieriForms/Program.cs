@@ -20,8 +20,9 @@ namespace InchirieriForms
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form1 form1 = new Form1();
+            Login form1 = new Login();
             Application.Run(form1);
+           
             
         }
     }

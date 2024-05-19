@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Clase
 {
     [Flags]
-    public enum OptiuniMasina   //enum #2
+    public enum OptiuniMasina   
     {
         None = 0b_0000_0000,
         AerConditionat = 0b_0000_0001 << 1, //1
@@ -17,7 +17,7 @@ namespace Clase
         ScauneIncalzite = 0b_0001_0000 << 5 //16
     }
 
-    public enum CuloareMasina       //enum #1
+    public enum CuloareMasina       
     {
         Rosu, Alb, Negru, Gri, Albastru, Verde, Maro
     }
