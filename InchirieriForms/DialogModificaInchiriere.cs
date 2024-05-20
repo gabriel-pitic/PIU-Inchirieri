@@ -344,7 +344,7 @@ namespace InchirieriForms
                 this.Close();
             }
             else
-            { MessageBox.Show("Date invalide"); }
+            { MessageBox.Show("date invalide"); }
 
 
         }
