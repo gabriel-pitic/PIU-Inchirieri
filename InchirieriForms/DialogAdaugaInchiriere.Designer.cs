@@ -55,13 +55,12 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(185)))), ((int)(((byte)(65)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(20, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(27, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(248, 28);
+            this.label1.Size = new System.Drawing.Size(331, 34);
             this.label1.TabIndex = 1;
             this.label1.Text = "Client";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -71,10 +70,9 @@
             this.lblMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.Color.White;
-            this.lblMarca.Location = new System.Drawing.Point(21, 63);
-            this.lblMarca.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMarca.Location = new System.Drawing.Point(28, 78);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(71, 23);
+            this.lblMarca.Size = new System.Drawing.Size(95, 28);
             this.lblMarca.TabIndex = 2;
             this.lblMarca.Text = "Nume:";
             this.lblMarca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -84,10 +82,9 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(21, 98);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(28, 121);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 23);
+            this.label2.Size = new System.Drawing.Size(95, 28);
             this.label2.TabIndex = 3;
             this.label2.Text = "Prenume:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -97,10 +94,9 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(21, 132);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(28, 162);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 23);
+            this.label3.Size = new System.Drawing.Size(95, 28);
             this.label3.TabIndex = 4;
             this.label3.Text = "CNP:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -109,30 +105,30 @@
             // 
             this.txtNume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNume.Location = new System.Drawing.Point(100, 63);
-            this.txtNume.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNume.Location = new System.Drawing.Point(133, 78);
+            this.txtNume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNume.Name = "txtNume";
-            this.txtNume.Size = new System.Drawing.Size(170, 24);
+            this.txtNume.Size = new System.Drawing.Size(225, 28);
             this.txtNume.TabIndex = 12;
             // 
             // txtPrenume
             // 
             this.txtPrenume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrenume.Location = new System.Drawing.Point(100, 98);
-            this.txtPrenume.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrenume.Location = new System.Drawing.Point(133, 121);
+            this.txtPrenume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrenume.Name = "txtPrenume";
-            this.txtPrenume.Size = new System.Drawing.Size(170, 24);
+            this.txtPrenume.Size = new System.Drawing.Size(225, 28);
             this.txtPrenume.TabIndex = 13;
             // 
             // txtCNP
             // 
             this.txtCNP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtCNP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCNP.Location = new System.Drawing.Point(100, 132);
-            this.txtCNP.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCNP.Location = new System.Drawing.Point(133, 162);
+            this.txtCNP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCNP.Name = "txtCNP";
-            this.txtCNP.Size = new System.Drawing.Size(170, 24);
+            this.txtCNP.Size = new System.Drawing.Size(225, 28);
             this.txtCNP.TabIndex = 14;
             // 
             // lbl
@@ -140,10 +136,9 @@
             this.lbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl.ForeColor = System.Drawing.Color.White;
-            this.lbl.Location = new System.Drawing.Point(21, 174);
-            this.lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl.Location = new System.Drawing.Point(28, 214);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(71, 37);
+            this.lbl.Size = new System.Drawing.Size(95, 46);
             this.lbl.TabIndex = 15;
             this.lbl.Text = "Dată început:";
             this.lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -153,10 +148,9 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(21, 231);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(28, 284);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 37);
+            this.label4.Size = new System.Drawing.Size(95, 46);
             this.label4.TabIndex = 16;
             this.label4.Text = "Dată sfârșit";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -164,21 +158,21 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(100, 183);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker1.Location = new System.Drawing.Point(133, 225);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(170, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(225, 22);
             this.dateTimePicker1.TabIndex = 17;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(100, 240);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker2.Location = new System.Drawing.Point(133, 295);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(170, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(225, 22);
             this.dateTimePicker2.TabIndex = 18;
             // 
             // lblPret
@@ -186,10 +180,9 @@
             this.lblPret.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.lblPret.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPret.ForeColor = System.Drawing.Color.White;
-            this.lblPret.Location = new System.Drawing.Point(21, 290);
-            this.lblPret.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPret.Location = new System.Drawing.Point(28, 357);
             this.lblPret.Name = "lblPret";
-            this.lblPret.Size = new System.Drawing.Size(71, 37);
+            this.lblPret.Size = new System.Drawing.Size(95, 46);
             this.lblPret.TabIndex = 19;
             this.lblPret.Text = "Preț total";
             this.lblPret.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -199,10 +192,9 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(100, 291);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(133, 358);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 32);
+            this.label5.Size = new System.Drawing.Size(224, 39);
             this.label5.TabIndex = 20;
             this.label5.Text = "0.0 lei";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -211,35 +203,35 @@
             // 
             this.listViewSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewSelected.HideSelection = false;
-            this.listViewSelected.Location = new System.Drawing.Point(24, 452);
-            this.listViewSelected.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewSelected.Location = new System.Drawing.Point(32, 556);
+            this.listViewSelected.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewSelected.Name = "listViewSelected";
-            this.listViewSelected.Size = new System.Drawing.Size(1091, 137);
+            this.listViewSelected.Size = new System.Drawing.Size(1453, 168);
             this.listViewSelected.TabIndex = 21;
             this.listViewSelected.UseCompatibleStateImageBehavior = false;
             // 
             // btnOk
             // 
-            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(185)))), ((int)(((byte)(65)))));
+            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.ForeColor = System.Drawing.Color.White;
-            this.btnOk.Location = new System.Drawing.Point(24, 602);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOk.Location = new System.Drawing.Point(32, 741);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(98, 36);
+            this.btnOk.Size = new System.Drawing.Size(131, 44);
             this.btnOk.TabIndex = 28;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(185)))), ((int)(((byte)(65)))));
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(127, 602);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Location = new System.Drawing.Point(169, 741);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(106, 36);
+            this.btnCancel.Size = new System.Drawing.Size(141, 44);
             this.btnCancel.TabIndex = 29;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -249,48 +241,46 @@
             this.listViewMasini.BackColor = System.Drawing.Color.White;
             this.listViewMasini.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewMasini.HideSelection = false;
-            this.listViewMasini.Location = new System.Drawing.Point(294, 98);
-            this.listViewMasini.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewMasini.Location = new System.Drawing.Point(392, 121);
+            this.listViewMasini.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewMasini.Name = "listViewMasini";
-            this.listViewMasini.Size = new System.Drawing.Size(821, 342);
+            this.listViewMasini.Size = new System.Drawing.Size(1093, 420);
             this.listViewMasini.TabIndex = 30;
             this.listViewMasini.UseCompatibleStateImageBehavior = false;
             // 
             // label6
             // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(185)))), ((int)(((byte)(65)))));
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(294, 21);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(392, 26);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(820, 28);
+            this.label6.Size = new System.Drawing.Size(1093, 34);
             this.label6.TabIndex = 31;
             this.label6.Text = "Alegeți o mașină:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(185)))), ((int)(((byte)(65)))));
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(20, 411);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(27, 506);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(248, 28);
+            this.label7.Size = new System.Drawing.Size(331, 34);
             this.label7.TabIndex = 32;
             this.label7.Text = "Mașină";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(185)))), ((int)(((byte)(65)))));
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(118)))), ((int)(((byte)(28)))));
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(1008, 602);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRefresh.Location = new System.Drawing.Point(1344, 741);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(106, 36);
+            this.btnRefresh.Size = new System.Drawing.Size(141, 44);
             this.btnRefresh.TabIndex = 33;
             this.btnRefresh.Text = "REFRESH";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -298,10 +288,10 @@
             // txtCauta
             // 
             this.txtCauta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCauta.Location = new System.Drawing.Point(393, 62);
-            this.txtCauta.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCauta.Location = new System.Drawing.Point(524, 76);
+            this.txtCauta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCauta.Name = "txtCauta";
-            this.txtCauta.Size = new System.Drawing.Size(310, 24);
+            this.txtCauta.Size = new System.Drawing.Size(412, 28);
             this.txtCauta.TabIndex = 34;
             // 
             // label8
@@ -309,10 +299,9 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(185)))), ((int)(((byte)(65)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(294, 63);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(392, 78);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 23);
+            this.label8.Size = new System.Drawing.Size(125, 28);
             this.label8.TabIndex = 35;
             this.label8.Text = "Caută:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -323,9 +312,10 @@
             this.lblEroare.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblEroare.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEroare.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEroare.Location = new System.Drawing.Point(24, 345);
+            this.lblEroare.Location = new System.Drawing.Point(32, 425);
+            this.lblEroare.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEroare.Name = "lblEroare";
-            this.lblEroare.Size = new System.Drawing.Size(244, 41);
+            this.lblEroare.Size = new System.Drawing.Size(325, 50);
             this.lblEroare.TabIndex = 36;
             this.lblEroare.Text = "Text Eroare";
             this.lblEroare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -333,10 +323,10 @@
             // 
             // DialogAdaugaInchiriere
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(228)))), ((int)(((byte)(158)))));
-            this.ClientSize = new System.Drawing.Size(1186, 693);
+            this.ClientSize = new System.Drawing.Size(1581, 853);
             this.Controls.Add(this.lblEroare);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtCauta);
@@ -360,7 +350,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DialogAdaugaInchiriere";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DialogAdaugaInchiriere";

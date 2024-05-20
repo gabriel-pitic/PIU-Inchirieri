@@ -1,2 +1,1 @@
-0;VW;Touran 2008;Manuală;A+;SV45PTV;5;60.41;Motorină;Negru;1,2;False
-2;Audi;X4 2012;Manuală;S;SV17ETT;5;70.4;Benzină;Rosu;0;True
+2;Audi;X4 2012;Manuală;A+;SV17ETT;5;70.4;Benzină;Gri;0;False

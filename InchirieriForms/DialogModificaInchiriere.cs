@@ -133,17 +133,33 @@ namespace InchirieriForms
         }
 
 
-        private void Change_Pret()
+        private double Change_Pret()
         {
             double pret = 0;
             if (CheckedMasina != null)
+            {
                 pret = CheckedMasina.pret_zi * (dateTimePicker2.Value - dateTimePicker1.Value).TotalDays;
+            }
+            if (rentFromSursa != null)
+            {
+                try
+                {
+                    List<masina> cars = adminMasini.GetMasini();
+                    masina car = cars.FirstOrDefault(r => r.id == rentFromSursa.CarID);
+                    pret = car.pret_zi*(dateTimePicker2.Value - dateTimePicker1.Value).TotalDays;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
             if (pret > 0)
             {
                 string pretText = pret.ToString("0.##");
                 pretText = pretText + " lei";
                 label5.Text = pretText;
             }
+            return pret;
         }
 
         private void BtnOk_Click(object sender, EventArgs e)
@@ -299,7 +315,7 @@ namespace InchirieriForms
             }
             else
             {
-                pret = rentFromSursa.pret;
+                pret = Change_Pret();
             }
 
 
@@ -346,12 +362,12 @@ namespace InchirieriForms
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            Change_Pret();
+            double value=Change_Pret();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            Change_Pret();
+            double value=Change_Pret();
         }
 
 
